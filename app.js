@@ -3,6 +3,8 @@ const express = require("express");
 const app = express();
 const mysql = require("mysql2");
 const myConnection = require("express-myconnection");
+const router = require("./routes/routes");
+
 const dbOptions = {
   host: "localhost",
   port: 3306,
@@ -11,7 +13,7 @@ const dbOptions = {
   database: "lacasaca",
 };
 
-const routes = require("./routes/usersRoutes");
+//const routes = require("./routes/usersRoutes");
 
 // Middlewares----------------------------------------------
 
@@ -23,7 +25,7 @@ app.get("/api", (req, res) => {
   res.send("Bienvenido a la API de La Casaca");
 });
 
-app.use("/api", routes);
+app.use(router);
 
 // Server funcionando----------------------------------------------
 

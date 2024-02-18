@@ -39,6 +39,7 @@ routes.get("/users", (req, res) => {
             const responseObject = {
               total_usuarios: countResult[0].total_usuarios,
               usuarios: users.map((user) => ({
+                id: user.id,
                 nombre: user.nombre,
                 email: user.email,
                 detail: user.detail,
